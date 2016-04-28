@@ -1,8 +1,1 @@
 Host on github: http://blog.teamtreehouse.com/using-github-pages-to-host-your-website
-
-Possible future features:
-  * Date selection for history.
-  * Option to show yesterday, previous 7 days, all overlaid, on graph screen.
-  * Option for week, month, year on chart screen.
-  * Show cumulative energy graph on power screen.
-  * Better graph icon.
