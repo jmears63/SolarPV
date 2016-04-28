@@ -1,6 +1,4 @@
-Upload to github.
-
-Host on AWS. Is it necessary?
+Host on github: http://blog.teamtreehouse.com/using-github-pages-to-host-your-website
 
 Possible future features:
   * Date selection for history.
