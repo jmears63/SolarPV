@@ -7,6 +7,7 @@ The Bosch BPTS-4 inverter for domestic solar installations includes a web server
 * High quality graphs that use all available screen space.
 * Works well on tablets and phones.
 * Includes sample data.
+* No animations or other UI gimmicks.
 
 ## Installation
 (todo)
@@ -18,3 +19,6 @@ The Bosch BPTS-4 inverter for domestic solar installations includes a web server
 
 ## Screen Shots
 ![Alt text](screendumps/PVGraph.png?raw=true "PV Graph")
+
+## The Author
+(todo)
