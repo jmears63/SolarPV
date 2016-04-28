@@ -1,0 +1,79 @@
+<!--
+  Copyright(C) 2016 John Mears
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<script type="text/ng-template" id="settingsmodal">
+  <div class="modal-header">
+      <h4 class="modal-title">Settings</h4>
+  </div>
+  <div class="modal-body">
+    <form name="form" class="simple-form" novalidate>
+      <div class="form-group">
+
+        <div class="radio">
+          <label>
+            <input type="radio" name="datasource" id="sampledata" value="sample" ng-model="settings.dataSource">
+            Use sample data
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="datasource" id="livedata" value="live" ng-model="settings.dataSource">
+            Read data from Bosch invertor
+          </label>
+        </div>
+	
+        <div class="input-group">
+          <span class="input-group-addon" id="invertordesc">http://</span>
+          <input type="text" class="form-control" name="invertorurl"
+            aria-describedby="invertordesc" ng-model="settings.invertorUrl" ng-disabled="settings.dataSource === 'sample'"
+              ng-required="settings.dataSource === 'live'" ng-pattern="/^([0-9a-zA-Z]+\.)*([0-9a-zA-Z]+)$/">
+        </div>
+        <label for="maxpower">Max power:</label>
+        <div class="input-group">
+          <span class="input-group-addon"><input type="checkbox" ng-model="settings.autoPower"></span>
+          <span class="input-group-addon" id="powerauto">Auto</span>
+          <span><input type="number" min="0.1" max="50" required class="form-control" name="maxpower"
+                ng-disabled="settings.autoPower" aria-describedby="powerunits" ng-model="settings.maxPower"></span>
+          <span class="input-group-addon" id="powerunits">kW</span>
+        </div>
+        
+        <label for="maxenergy">Max energy:</label>
+        <div class="input-group">
+          <span class="input-group-addon"><input type="checkbox" ng-model="settings.autoEnergy"></span>
+          <span class="input-group-addon" id="energyauto">Auto</span>
+          <span><input type="number" min="0.1" max="100" required class="form-control" name="maxenergy"
+                ng-disabled="settings.autoEnergy" aria-describedby="energyunits" ng-model="settings.maxEnergy"></span>
+          <span class="input-group-addon" id="energyunits">kWh</span>
+        </div>
+        
+        <!--
+        <label for="dayrange">Day range:</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="from">From:</span>
+          <span><input type="text" required class="form-control" name="starttime" ng-model="settings.startTime" ng-pattern="/[0-2]?[0-9]:[0-5][0-9]/"></span>
+          <span class="input-group-addon" id="from">To:</span>
+          <span><input type="text" required class="form-control" name="endtime" ng-model="settings.endTime" ng-pattern="/[0-2]?[0-9]:[0-5][0-9]/"></span>
+        </div>
+        -->
+        
+      </div>  
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled="form.$invalid || form.$pristine">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</script>

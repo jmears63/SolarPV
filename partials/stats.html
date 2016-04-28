@@ -1,0 +1,43 @@
+<!--
+  Copyright(C) 2016 John Mears
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div id="main-container-stats" class="container">
+  <div class="panel panel-default">
+    <table class="table ng-cloak">
+      <tr><td>Power collected:</td><td>{{ stats.totalDcPower | number:0 }} W</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 1"><td>Power delivered:</td><td>{{ stats.totalAcPower  | number:0 }} W</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 1"><td>Inverter loss:</td><td>{{ stats.loss | number:1 }} %</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 2"><td>Power delivered per phase:</td><td>{{ stats.l1AcPower | number:0 }} W</td><td>{{ stats.l2AcPower | number:0 }} W</td><td>{{ stats.l3AcPower | number:0 }} W</td></tr>
+      <tr><td>Energy yield today:</td><td>{{stats.YieldForDay | number:3 }} kWh</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 2"><td>Energy yield this year:</td><td>{{stats.YieldForYear | number:1 }} kWh</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 1"><td>Energy yield total:</td><td>{{stats.TotalYield | number:1 }} kWh</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 2 && stats.info.numberOfStringInputs > 0"><td>String A details:</td><td>{{ stats.stringA.DcPower | number:0 }} W</td><td>{{ stats.stringA.v | number:0 }} V</td><td>{{ stats.stringA.i | number:2 }} A</td></tr>
+      <tr ng-show="detail >= 2 && stats.info.numberOfStringInputs > 1"><td>String B details:</td><td>{{ stats.stringB.DcPower | number:0 }} W</td><td>{{ stats.stringB.v | number:0 }} V</td><td>{{ stats.stringB.i | number:2 }} A</td></tr>
+      <tr ng-show="detail >= 2 && stats.info.numberOfStringInputs > 2"><td>String C details:</td><td>{{ stats.stringC.DcPower | number:0 }} W</td><td>{{ stats.stringC.v | number:0 }} V</td><td>{{ stats.stringC.i | number:2 }} A</td></tr>
+      <tr ng-show="detail >= 2 && stats.info.numberOfStringInputs > 3"><td>String D details:</td><td>{{ stats.stringD.DcPower | number:0 }} W</td><td>{{ stats.stringD.v | number:0 }} V</td><td>{{ stats.stringD.i | number:2 }} A</td></tr>
+      <tr ng-show="detail >= 2"><td>Inverter info:</td><td>{{ stats.info.deviceName }}</td><td>Model: {{ stats.info.model }}</td><td>Serial: {{ stats.info.serialNumber }}</td></tr>
+      <tr ng-show="detail >= 1"><td>Grid</td><td>{{ stats.grid.fGrid | number:1 }} Hz</td><td></td><td></td></tr>
+      <tr ng-show="detail >= 2"><td>Grid L1:</td><td>{{ stats.grid.iGridL1 | number:3 }} A</td><td>{{ stats.grid.uGridL1 | number:1 }} V</td><td></td></tr>
+      <tr ng-show="detail >= 2"><td>Grid L2:</td><td>{{ stats.grid.iGridL2 | number:3 }} A</td><td>{{ stats.grid.uGridL2 | number:1 }} V</td><td></td></tr>
+      <tr ng-show="detail >= 2"><td>Grid L3:</td><td>{{ stats.grid.iGridL3 | number:3 }} A</td><td>{{ stats.grid.uGridL3 | number:1 }} V</td><td></td></tr>
+    </table>
+  </div>
+  <div>
+    <label class="radio-inline">Detail:</label>
+    <label class="radio-inline"><input type="radio" name="detail" id="detailMedium" value="1" ng-model="detail">Low</label>
+    <label class="radio-inline"><input type="radio" name="detail" id="detailHigh" value="2" ng-model="detail">High</label>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+  Copyright(C) 2016 John Mears
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html lang="en" ng-app="pvapp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Solar PV Monitoring">
+    <meta name="author" content="John Mears">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Solar PV</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="pvapp.css">
+  </head>
+
+  <body ng-controller="BodyController">
+    <div id="header-container" class="container" ng-controller="HeaderController">
+      <div class="btn-group">
+        <a ng-class="{ active: isActive('/stats')}" class="btn btn-primary" href="#/stats"><span class="glyphicon glyphicon-list"></span> Stats</a>
+        <a ng-class="{ active: isActive('/graph')}" class="btn btn-primary" href="#/graph"><span class="glyphicon glyphicon-dashboard"></span> Graph</a>
+        <a ng-class="{ active: isActive('/chart')}" class="btn btn-primary" href="#/chart"><span class="glyphicon glyphicon-signal"></span> Chart</a>
+      </div>
+      
+      <button type="button" class="btn btn-default pull-right"  ng-click="openSettings()"><span class="glyphicon glyphicon-cog"></span></button>
+    </div>
+
+    <!-- div class="status ng-cloak" ng-show="statusMessage.length > 0">{{ statusMessage }}</div -->
+    
+    <ng-include src="'partials/settings.html'"></ng-include>
+    <ng-include src="'partials/status.html'"></ng-include>
+    
+    <div ng-view></div>
+
+    <!-- Third party stuff -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+    
+    <!-- This application -->
+    <script src="js/controllers.js"></script>
+    <script src="js/pvapp.js"></script>
+
+  </body>
+</html>
