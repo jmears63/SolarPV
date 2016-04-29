@@ -15,7 +15,7 @@ Simple - there is no installation. All the funcionality in these pages is
 client side in javascript. The server only needs to server static content, and
 github will do that job for us:
 
-http://jmears63.github.io/SolarPV/#/graph
+http://jmears63.github.io/SolarPV
 
 If you like, you can copy the pages to your own server, but there is no need.
 
@@ -27,7 +27,7 @@ inverter, you need to:
 * Make sure your Bosch invertor is accessible from the same network as your browser.
 Check this by navigating to the hostname or IP of your inverter. You should see the
 Bosch e.Data web page.
-* Navigate to http://jmears63.github.io/SolarPV/#/graph and click on the settings
+* Navigate to http://jmears63.github.io/SolarPV and click on the settings
 button in the top right (with the gear symbol on).
 * Check "Read data from Bosch inverter", enter the inverter hostname or IP, and
 click OK.
