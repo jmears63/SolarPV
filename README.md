@@ -47,7 +47,7 @@ See the screendumps directory for a full set of screen dumps.
 ![Alt text](screendumps/PVGraph.png?raw=true "PV Graph")
 
 ## The Author
-I am an experienced SaaS/Cloud software architect and developer. In my spare time
+I am John Mears, an experienced SaaS/Cloud software architect and developer. In my spare time
 I enjoy cycling, playing double bass, and figuring out ways of saving energy. 
 
 You can find out more about me here: https://www.linkedin.com/in/mearsjohn. 
