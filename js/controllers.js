@@ -673,7 +673,7 @@ pvmodule.controller('ChartController',
           .attr("x", function(d) { return x(d.midday) - daywidth / 2; })
           .attr("y", function(d) { return y(d.value); })
           .append("svg:title")
-              .text(function(d) { return d.value.toFixed(3) + " kW generated on\n" + d.date.toDateString(); });
+              .text(function(d) { return d.value.toFixed(3) + " kWh generated on\n" + d.date.toDateString(); });
   
         // Axes in front of graphs:
         svg.append("g")
